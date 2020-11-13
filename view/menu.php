@@ -26,45 +26,40 @@
 									<a class="gn-icon gn-icon-search"><span>Search</span></a>
 								</li>
 								<li>
-									<a class="gn-icon gn-icon-download">Vendedores</a>
+									<a class="gn-icon gn-icon-article">Vendedores</a>
 									<ul class="gn-submenu">
-										<li><a href="menu.php?page=cadastroVendedor.php" class="gn-icon gn-icon-download">Cadastrar Vendedor</a></li>
-										<li><a href="menu.php?page=relVendedor.php" class="gn-icon gn-icon-download">Relatório de vendedores</a></li>
+										<li><a href="menu.php?page=cadastroVendedor.php" class="gn-icon gn-icon-archive">Cadastrar Vendedor</a></li>
+										<li><a href="menu.php?page=relVendedor.php" class="gn-icon gn-icon-archive">Relatório de vendedores</a></li>
 									</ul>
 								</li>
 								<li>
-									<a class="gn-icon gn-icon-download">Produtos/Serviços</a>
+									<a class="gn-icon gn-icon-article">Produtos/Serviços</a>
 									<ul class="gn-submenu">
-										<li><a class="gn-icon gn-icon-download">Cadastrar Produto</a></li>
-										<li><a class="gn-icon gn-icon-download">Relatório de Produtos</a></li>
+										<li><a class="gn-icon gn-icon-archive">Cadastrar Produto</a></li>
+										<li><a class="gn-icon gn-icon-archive">Relatório de Produtos</a></li>
 									</ul>
 								</li>
 								<li>
-									<a class="gn-icon gn-icon-download">Vendedores</a>
+									<a class="gn-icon gn-icon-article">Vendedores</a>
 									<ul class="gn-submenu">
-										<li><a class="gn-icon gn-icon-download">Cadastrar Vendedor</a></li>
-										<li><a class="gn-icon gn-icon-download">Relatório de vendedores</a></li>
+										<li><a class="gn-icon gn-icon-archive">Cadastrar Vendedor</a></li>
+										<li><a class="gn-icon gn-icon-archive">Relatório de vendedores</a></li>
 									</ul>
 								</li>
 								
-						</div><!-- /gn-scroller -->
-					</nav>
+						</div><!-- /gn-scroller -->					</nav>
 				</li>				
 				<li><a class="codrops-icon codrops-icon-drop" href="menu.php"><span>Voltar para Engeplus</span></a></li>
 			</ul>
 			<div class="pageloader">
 				<?php
-				if (empty($_REQUEST['page'])){
-					
+				if (empty($_REQUEST['page'])){					
 					echo '<img src="./images/logo.png" style=" display: block; margin-left: auto; margin-right: auto; width: 20%; margin-top: 100px;" alt="Engeplus">';
-
 				}
 				?>				
 				<?php 
 				$url = "";
-				// if (isset($_REQUEST['page'])) {
-				// 	$_REQUEST['page'];
-				// }
+
 				if (!empty($_REQUEST['page'])){
 					$url = $_REQUEST['page'];
 				}				

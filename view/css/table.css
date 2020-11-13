@@ -313,6 +313,23 @@ iframe {
   margin-bottom: 17px;
 }
 
+.wrap-input100-disable {
+  width: 100%;
+  position: relative;
+  background-color: rgb(185, 185, 185);
+  border: 1px solid rgb(185, 185, 185);
+  margin-bottom: 17px;
+}
+.input100-disable {
+  display: block;
+  width: 100%;
+  background: transparent;
+  font-family: JosefinSans-Bold;
+  font-size: 15px;
+  color: #fbfbfb;
+  line-height: 1.2;
+}
+
 .input100 {
   display: block;
   width: 100%;
@@ -322,6 +339,8 @@ iframe {
   color: #1b3815;
   line-height: 1.2;
 }
+
+
 
 
 /*---------------------------------------------*/

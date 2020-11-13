@@ -34,9 +34,9 @@ class Banco{
         try{
             $Conexao    = Conexao::getConnection();
             $query      = $Conexao->query("SELECT id_vendedor, nome, comissao FROM vendedor");
-            $produtos   = $query->fetchAll();
+            $vendedor   = $query->fetchAll();
 
-            return $produtos;
+            return $vendedor;
          
          }catch(Exception $e){
             echo $e->getMessage();
@@ -47,8 +47,7 @@ class Banco{
      public function deleteVendedor($id_vendedor){         
             try{
                 $Conexao    = Conexao::getConnection();
-                $query      = $Conexao->query("DELETE FROM vendedor WHERE id_vendedor = " .$id_vendedor);                                                
-                //var_dump($query);
+                $query      = $Conexao->query("DELETE FROM vendedor WHERE id_vendedor = " .$id_vendedor);                                                                
                 $query->execute();
                 return 1;
              }catch(Exception $e){
@@ -57,19 +56,33 @@ class Banco{
                 exit;
              }     
      }
-    // public function pesquisaLivro($id){
-    //     $result = $this->mysqli->query("SELECT * FROM livros WHERE nome='$id'");
-    //     return $result->fetch_array(MYSQLI_ASSOC);
+     public function pesquisaVendedor($id){
+         try{
+            $Conexao    = Conexao::getConnection();
+            $query      = $Conexao->query("SELECT top 1 id_vendedor, nome, comissao FROM vendedor where id_vendedor = '$id' ");
+            $pesquisavendedor   = $query->fetchAll();
+            //$serialized_array = serialize($pesquisavendedor);
+            return $pesquisavendedor;
+         
+         }catch(Exception $e){
+            echo $e->getMessage();
+            exit;
+         }
+     }
 
-    // }
-    // public function updateLivro($nome,$autor,$quantidade,$preco,$flag,$data,$id){
-    //     $stmt = $this->mysqli->prepare("UPDATE `livros` SET `nome` = ?, `autor`=?, `quantidade`=?, `preco`=?, `flag`=?,`data` = ? WHERE `nome` = ?");
-    //     $stmt->bind_param("sssssss",$nome,$autor,$quantidade,$preco,$flag,$data,$id);
-    //     if($stmt->execute()==TRUE){
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
+    public function updateVendedor($id_vendedor,$nome,$comissao){
+      try{
+         $Conexao    = Conexao::getConnection();
+         $query      = $Conexao->query("UPDATE vendedor SET nome = '$nome', comissao = $comissao where id_vendedor = $id_vendedor");                                    
+         //var_dump($query);
+         $query->execute();
+         return TRUE;
+      }catch(Exception $e){
+         echo $e->getMessage();
+         return FALSE;
+         exit;
+      }               
+    }
+
 }
 ?>

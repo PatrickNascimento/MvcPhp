@@ -14,7 +14,7 @@ class cadastroVendedorController{
         $this->cadastro->setComissao($_POST['comissao']);          
         $result = $this->cadastro->incluir();        
         if($result >= 1){
-           echo "<script>alert('Registro incluído com sucesso!');document.location='../view/cadastroVendedor.php'</script>";
+           echo "<script>alert('Registro incluído com sucesso!');document.location='../view/menu.php?page=cadastroVendedor.php'</script>";
         }else{
            echo "<script>alert('Erro ao gravar registro!');history.back()</script>";
         }
