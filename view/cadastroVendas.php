@@ -9,7 +9,7 @@ require_once("../controller/ControllerVendas.php");
 <body>
 	<div class="container-contact100">	
 		<div class="wrap-contact100">
-			<form method="post" action="../controller/ControllerCadastroVenda.php?id_vendedor=1&id_produto=62" id="form" name="form" onsubmit="validar(document.form); return false;" class="contact100-form validate-form">			
+			<form method="post" action="" id="form" name="form" class="contact100-form validate-form">			
 				<span class="contact100-form-title">
 					Vendas
 				</span>
@@ -24,18 +24,16 @@ require_once("../controller/ControllerVendas.php");
 				</div>		
 
 				<div class="select ">
-					<select  type="SELECT"  id="Produto" name="Produto" >
+					<select  type="SELECT"  id="produto" name="produto" >
 					<option  value="" disabled selected>Selecione um produto</option>
-						<?php new listaProdutoVendas(); ?>
+						<?php new listaprodutoVendas(); ?>
 					</select>
 					<span class="focus-input100-1"></span>
 					<span class="focus-input100-2"></span>
-				</div>		
-
-				
+				</div>	
 
 				<div class="wrap-input100 validate-input" data-validate="Quantidade">
-					<input class="input100" type="text"  id="Quantidade" name="quantidade" placeholder="Informe quantidade">
+					<input class="input100" type="text"  id="quantidade" name="quantidade" placeholder="Informe quantidade">
 					<span class="focus-input100-1"></span>
 					<span class="focus-input100-2"></span>
 				</div>				
@@ -46,19 +44,19 @@ require_once("../controller/ControllerVendas.php");
 					<span class="focus-input100-2"></span>
 				</div>				
 				<div class="wrap-input100 validate-input" data-validate="data">
-					<input class="input100" type="text"  id="data" name="data" placeholder="Data">
+					<input class="input100" type="date"  id="data" name="data" placeholder="Data">
 					<span class="focus-input100-1"></span>
 					<span class="focus-input100-2"></span>
 				</div>				
 
-				<div class="wrap-input100 validate-input" data-validate = "Comissão é obrigatório">
+				<!-- <div class="wrap-input100 validate-input" data-validate = "Comissão é obrigatório">
 					<input class="input100"  id="comissao" name="comissao" placeholder="Insira uma comissão"></input>
 					<span class="focus-input100-1"></span>
 					<span class="focus-input100-2"></span>
-				</div>
+				</div> -->
 
-				<div class="container-contact100-form-btn">					
-						<button class="btn btn-success" type="submit">Efetuar Venda</button>						
+				<div class="container-contact100-form-btn">											
+						<button class="btn btn-success" type="button" onclick="validar()">Efetuar Venda</button>						
 					</button>
 				</div>
 			</form>
@@ -66,11 +64,7 @@ require_once("../controller/ControllerVendas.php");
 	</div>
 
 	<script language="javascript" type="text/javascript">   
-
-	$(document).ready(function($){
-		$("#data").mask("99/99/9999");
-	});
-
+	
 	document.addEventListener("keydown", function(e) {
 		if(e.keyCode === 13) {	  
   		e.preventDefault();
@@ -78,34 +72,62 @@ require_once("../controller/ControllerVendas.php");
 
 });	
 
-	/**PEGA O VALOR DE ACORDO COM A SELEÇÃO DO PRODUTO */
-	$('#Produto').change(function (){
+	/**PEGA O VALOR DE ACORDO COM A SELEÇÃO DO produto */
+	$('#produto').change(function (){
       var option = $(this).find("option:selected");
       var valor  = $(this).find(':selected').attr('valor');
 	  $('#valor').val(valor);
 	});
 
 	/**TOTALIZA O VALOR DE ACORDO COM A QUANTIDADE E FORMATA O VALOR */
-	$('#Quantidade').change(function (){      
+	$('#quantidade').change(function(){      
 	var valor =  $('#valor').val();	
-	var quant =  $('#Quantidade').val();	
+	var quant =  $('#quantidade').val();	
 	var total = (valor * quant).toFixed(2);         
 	$('#valor').val(total);
-	
-	//CRIA A MASCARA PARA O CAMPO DATA	
-	$("#data").mask("99/99/9999");
-	
 	});				 
-        function validar(formulario) {			
-            var nome = form.nome.value;            
-            
-                if ((formulario.nome.length = 0)) {
-                    alert("Preencha o campo nome ");
-                    formulario.nome.focus();
+
+	//CRIA A MASCARA PARA O CAMPO DATA	
+	// $("#data").mask("99/99/9999");	
+	 
+	
+        function validar() {						
+			var vendedor = $("#vendedor option:selected").text();
+			var produto = $("#produto option:selected").text();
+			var quantidade = $('#quantidade').val();
+			var data = $('#data').val();
+				
+			if (vendedor == 'Selecione um vendedor') {				
+                    alert("Selecione um vendedor");
+                    $('#vendedor').focus();
                     return false;
-				}				
-            formulario.submit();
-        }
+			}				
+			if (produto == 'Selecione um produto') {				
+                    alert("Selecione um produto");
+                    $('#produto').focus();
+                    return false;
+			}	
+			if(quantidade.length == 0) {
+				alert("Informe uma quantidade");
+                    $('#quantidade').focus();
+                    return false;
+			}			
+			if(data.length == 0) {
+				alert("Informe uma data");
+                    $('#data').focus();
+                    return false;
+			}	
+			/** OBTER ID_PRODUTO E ID_VENDEDOR */
+			var id_produto  = $('#produto').find(':selected').attr('value');
+			var id_vendedor  = $('#vendedor').find(':selected').attr('value');
+			params = '?id_produto='+id_produto+'&id_vendedor='+id_vendedor;		
+			window.location = "Index"+params
+			
+			/**ENVIA O FORMULÁRIO SE TUDO ESTIVER OK */
+			form.action = '../controller/ControllerCadastroVenda.php'+params;
+			form.submit();
+		}
+    
     </script>
 </body>
 

@@ -18,7 +18,7 @@ class cadastroVendaController{
         $this->cadastro->setValor($_POST['valor']);
         $this->cadastro->setQuantidade($_POST['quantidade']);          
         $this->cadastro->setData($_POST['data']);          
-        $this->cadastro->setComissao($_POST['comissao']);          
+        //$this->cadastro->setComissao($_POST['comissao']);          
 
         $result = $this->cadastro->incluir();        
         if($result >= 1){            

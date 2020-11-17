@@ -63,10 +63,10 @@ public function setProduto($nome,$valor,$quantidade,$comissao){
     }
 
     /*INSERE NOVO REGISTRO PRODUTO*/
-public function setVenda($id_vendedor,$id_produto,$valor,$data,$comissao){
+public function setVenda($id_vendedor,$id_produto,$valor,$data){
    try{
        $Conexao    = Conexao::getConnection();
-       $query      = $Conexao->prepare("INSERT INTO vendas (id_vendedor,id_produto,valor_venda,data_venda,comissao) VALUES ($id_vendedor,$id_produto,$valor,$data,$comissao)");                                                  
+       $query      = $Conexao->prepare("INSERT INTO vendas (id_vendedor,id_produto,valor_venda,data_venda) VALUES ($id_vendedor,$id_produto,$valor,$data)");                                                  
        $query->execute();
        return 1;
     }catch(Exception $e){
