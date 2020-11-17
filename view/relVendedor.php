@@ -6,6 +6,9 @@ require_once("../gulp.php");
 <!DOCTYPE html>
 <html lang="pt-br">
 <body>
+<span class="contact100-form-title-relatorio">
+	Relatório de Vendedor
+</span>
    
    <div style='top: -300px'>
     <table class="table-fill">

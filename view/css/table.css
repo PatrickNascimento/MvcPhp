@@ -302,6 +302,17 @@ iframe {
   padding-bottom: 30px;
 }
 
+.contact100-form-title-relatorio {
+  display: block;
+  font-family: roboto;
+  font-size: 30px;
+  color: #ececec;
+  line-height: 1.2;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+
 /*------------------------------------------------------------------
 [ Input ]*/
 
@@ -310,7 +321,7 @@ iframe {
   position: relative;
   background-color: #fff;
   border: 1px solid #e6e6e6;
-  margin-bottom: 17px;
+  margin-bottom: 10px;
 }
 
 .wrap-input100-disable {
@@ -318,7 +329,7 @@ iframe {
   position: relative;
   background-color: rgb(185, 185, 185);
   border: 1px solid rgb(185, 185, 185);
-  margin-bottom: 17px;
+  margin-bottom: 12px;
 }
 .input100-disable {
   display: block;
@@ -334,21 +345,17 @@ iframe {
   display: block;
   width: 100%;
   background: transparent;
-  font-family: JosefinSans-Bold;
+  font-family: Roboto;
   font-size: 15px;
   color: #1b3815;
   line-height: 1.2;
 }
 
-
-
-
 /*---------------------------------------------*/
 input.input100 {
-  height: 62px;
-  padding: 0 20px 0 23px;
+  height: 35px;
+  padding: 0 10px 0 13px;
 }
-
 
 textarea.input100 {
   min-height: 199px;
@@ -547,3 +554,64 @@ textarea.input100 {
 .contact100-form-btn:hover {
   background-color: #1b3815;
 }
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 1 !important;
+  border-color: #cfcdcd;
+  background: #eef0f3;
+  background-image: none;
+}
+/* Remove IE arrow */
+
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 2.6em;
+  line-height: 3;
+  background: #f4f6f8;
+  overflow: hidden;
+  border-radius: .25em;
+  font-family: JosefinSans-Bold;
+  font-size: 14px;
+  color: rgb(230, 230, 230);
+  margin-bottom: 17px;
+}
+select {
+  flex: 1;
+  padding: 0 2em;
+  color: #fff;
+  cursor: pointer;
+  font-family: roboto;
+  font-size: 14px;
+  color: rgb(85, 85, 85);
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 35;
+  right: 0;
+  padding: 0 1.5em;
+  height: 2.6em;
+  background: #676d75;
+  cursor: zoom-out;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+  color: #52a4f1;
+}
+
+
+

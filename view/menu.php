@@ -35,15 +35,15 @@
 								<li>
 									<a class="gn-icon gn-icon-article">Produtos/Serviços</a>
 									<ul class="gn-submenu">
-										<li><a class="gn-icon gn-icon-archive">Cadastrar Produto</a></li>
-										<li><a class="gn-icon gn-icon-archive">Relatório de Produtos</a></li>
+									<li><a href="menu.php?page=cadastroProduto.php" class="gn-icon gn-icon-archive">Cadastrar Produto</a></li>
+									<li><a href="menu.php?page=relProdutos.php"class="gn-icon gn-icon-archive">Relatório de Produtos</a></li>
 									</ul>
 								</li>
 								<li>
-									<a class="gn-icon gn-icon-article">Vendedores</a>
+									<a class="gn-icon gn-icon-article">Vendas</a>
 									<ul class="gn-submenu">
-										<li><a class="gn-icon gn-icon-archive">Cadastrar Vendedor</a></li>
-										<li><a class="gn-icon gn-icon-archive">Relatório de vendedores</a></li>
+										<li><a href="menu.php?page=cadastroVendas.php" class="gn-icon gn-icon-archive">Cadastrar Venda</a></li>
+										<li><a class="gn-icon gn-icon-archive">Relatório de vendas</a></li>
 									</ul>
 								</li>
 								

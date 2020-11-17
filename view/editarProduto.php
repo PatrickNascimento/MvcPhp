@@ -1,6 +1,6 @@
 <?php
 require_once("../gulp.php");
-require_once("../controller/ControllerEditarVendedor.php");?>
+require_once("../controller/ControllerEditarProduto.php");?>
 ?>
 
 <!DOCTYPE HTML>
@@ -10,13 +10,13 @@ require_once("../controller/ControllerEditarVendedor.php");?>
 	<div class="container-contact100">	
 
 		<div class="wrap-contact100">
-			<form method="post" action="../controller/ControllerEditarVendedor.php" id="form" name="form" onsubmit="validar(document.form); return false;" class="contact100-form validate-form">			
+			<form method="post" action="../controller/ControllerEditarProduto.php" id="form" name="form" onsubmit="validar(document.form); return false;" class="contact100-form validate-form">			
 			
 				<span class="contact100-form-title">
-					Editar Vendedor
+					Editar Produto
 				</span>
 				<div class="wrap-input100-disable validate-input" ">
-					<input class="input100" type="text"  id="id_vendedor" name="id_vendedor" readonly value="<?php echo $editar->getid();?>">
+					<input class="input100" type="text"  id="id_produto" name="id_produto" readonly value="<?php echo $editar->getid();?>">
 					<span class="focus-input100-1"></span>
 					<span class="focus-input100-2"></span>
 				</div>				
@@ -27,7 +27,19 @@ require_once("../controller/ControllerEditarVendedor.php");?>
 					<span class="focus-input100-2"></span>
 				</div>				
 
-				<div class="wrap-input100 validate-input" data-validate="Nome é obrigatório">
+				<div class="wrap-input100 validate-input" data-validate="valor">
+					<input class="input100" type="text"  id="valor" name="valor" value="<?php echo $editar->getValor();?>">
+					<span class="focus-input100-1"></span>
+					<span class="focus-input100-2"></span>
+				</div>				
+
+				<div class="wrap-input100 validate-input" data-validate="quantidade">
+					<input class="input100" type="text"  id="quantidade" name="quantidade" value="<?php echo $editar->getQuantidade();?>">
+					<span class="focus-input100-1"></span>
+					<span class="focus-input100-2"></span>
+				</div>				
+
+				<div class="wrap-input100 validate-input" data-validate="comissao">
 					<input class="input100" type="text"  id="comissao" name="comissao" value="<?php echo $editar->getComissao();?>">
 					<span class="focus-input100-1"></span>
 					<span class="focus-input100-2"></span>
@@ -55,5 +67,4 @@ require_once("../controller/ControllerEditarVendedor.php");?>
         }
     </script>
 </body>
-
 </html>

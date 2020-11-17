@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="css/table.css">
 </head>
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.min"></script>
 	<script src="vendor/animsition/js/animsition.min.js"></script>
 	<script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -24,5 +25,10 @@
 	<script src="vendor/daterangepicker/daterangepicker.js"></script>
 	<script src="vendor/countdowntime/countdowntime.js"></script>	
 	<script src="js/main.js"></script>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
 </body>
 </html>

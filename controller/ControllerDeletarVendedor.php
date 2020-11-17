@@ -1,5 +1,6 @@
 <?php
 require_once("../model/banco.php");
+require_once("../gulp.php");
 class deleteVendedor {
     private $deleta;
 

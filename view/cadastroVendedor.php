@@ -10,9 +10,9 @@ require_once("../gulp.php");
 	<div class="container-contact100">	
 
 		<div class="wrap-contact100">
-            <form method="post" action="../controller/ControllerCadastroVendedor.php" id="form" name="form" onsubmit="validar(document.form); return false;" class="contact100-form validate-form">
+            <form method="post" action="../controller/ControllerCadastroVendedor.php" id="form" name="form"  class="contact100-form validate-form">
 				<span class="contact100-form-title">
-					Cadastro de Vendedor
+					Cadastrar Vendedor
 				</span>
 
 				<div class="wrap-input100 validate-input" data-validate="Nome é obrigatório">
@@ -28,26 +28,30 @@ require_once("../gulp.php");
 				</div>
 
 				<div class="container-contact100-form-btn">					
-						<button class="btn btn-success" type="submit">Gravar</button>						
+						<button class="btn btn-success" type="button" onclick="validar()">Gravar</button>						
 					</button>
 				</div>
 			</form>
 		</div>
 	</div>
 
-    <script language="javascript" type="text/javascript">    
-
-        function validar(formulario) {
-            var nome = form.nome.value;            
-            
-                if ((formulario.nome.length = 0)) {
+    <script language="javascript" type="text/javascript"> 
+        function validar() {			
+			var nome = $('#nome').val();
+			var comissao = $('#comissao').val();			
+				
+			if (nome.length == 0) {
                     alert("Preencha o campo nome ");
-                    formulario.nome.focus();
+                    $('#nome').focus();
                     return false;
-                }
-            formulario.submit();
+			}
+			if (comissao.length == 0) {
+                    alert("Preencha o campo comissao");
+                    $('#comissao').focus();
+                    return false;
+            }
+            form.submit();
         }
     </script>
 </body>
-
 </html>
