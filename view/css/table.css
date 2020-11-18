@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
 body {
-  background-color: #34495e;
+  background-color: #71879e;
   font-family: "Roboto", helvetica, arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -65,7 +65,7 @@ div.table-title {
   height: 280px;
   margin: auto;
   /**max-width: 600px;*/
-  padding:5px;
+  padding:2px;
   width: 100%;
   left: -100;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -86,9 +86,9 @@ th {
   */
   border-bottom:4px solid #9ea7af;
   border-right: 1px solid #343a45;
-  font-size:23px;
+  font-size:20px;
   font-weight: 100;
-  padding:18px;
+  padding:9px;
   text-align:left;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align:middle;
@@ -129,7 +129,7 @@ h1,h2,h3,h4,h5,h6 {
 
 td {
   background:#FFFFFF;
-  padding:10px;
+  padding:7px;
   text-align:left;
   vertical-align:middle;  
   font-size:18px;
@@ -321,8 +321,69 @@ iframe {
   position: relative;
   background-color: #fff;
   border: 1px solid #e6e6e6;
-  margin-bottom: 10px;
+  margin-bottom: 10px;  
 }
+
+.filtro{
+  
+  background: #fff;
+  border-radius: 10px;
+  margin-top : 30px;
+
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.btn-Rel {
+  color: #111;
+  background-color: #d6d6d6;
+  border-color: #d6d6d6;
+}
+
+.btn-rel:hover {
+  color: #111;
+  background-color: #d3d2d1;
+  border-color:#d3d2d1;
+}
+
+.wrap-input101 {
+  width: 165px;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  float:left;
+}
+.wrap-periodo {
+  float:left;
+  margin-right: 15px;
+  margin-top: 7px;
+  font-family: roboto;
+  font-size: 18px;
+  color: #5c5c5c;  
+}
+.wrap-ate {
+  float:left;
+  margin-right: 15px;
+  margin-left: 13px;
+  margin-top: 7px;
+  font-family: roboto;
+  font-size: 18px;
+  color: #5c5c5c; 
+}
+.wrap-vendas {
+  float:left;
+  width: 210px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 0px;    
+}
+
+
 
 .wrap-input100-disable {
   width: 100%;
@@ -555,6 +616,47 @@ textarea.input100 {
   background-color: #1b3815;
 }
 
+[ Button ]*/
+.container-contact100-form-btn2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 13px;
+}
+
+.contact100-form-btn2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 42px;
+  background-color: #e9f3e7;
+
+  font-family: JosefinSans-Bold;
+  font-size: 14px;
+  color: rgb(70, 70, 70);
+  line-height: 1.2;
+  text-transform: uppercase;
+  padding-top: 5px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.contact100-form-btn2:hover {
+  background-color: #1b3815;
+}
+
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -611,6 +713,17 @@ select {
 /* Transition */
 .select:hover::after {
   color: #52a4f1;
+}
+
+.button2 {
+  background-color: #e7e7e7; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 

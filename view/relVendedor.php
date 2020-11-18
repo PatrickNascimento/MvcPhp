@@ -15,13 +15,13 @@ require_once("../gulp.php");
         <thead>
             <tr class="text-left">
                 <th class="text-left" width="60%" >Nome</th>
-                <th class="text-left" width="20%">Comissão</th>                
+                <th class="text-center" width="20%">Comissão</th>                
             </tr>
         </thead>
         <tbody>
             <?php new listarControllerVendedor(); ?>
         </tbody>
-    </table>  
+    </table>    
     </div>
 </body>
 </html>

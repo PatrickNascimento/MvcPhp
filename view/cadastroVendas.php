@@ -44,7 +44,7 @@ require_once("../controller/ControllerVendas.php");
 					<span class="focus-input100-2"></span>
 				</div>				
 				<div class="wrap-input100 validate-input" data-validate="data">
-					<input class="input100" type="date"  id="data" name="data" placeholder="Data">
+					<input class="input100" type="date"  id="datavenda" name="datavenda" placeholder="Data">
 					<span class="focus-input100-1"></span>
 					<span class="focus-input100-2"></span>
 				</div>				
@@ -95,7 +95,7 @@ require_once("../controller/ControllerVendas.php");
 			var vendedor = $("#vendedor option:selected").text();
 			var produto = $("#produto option:selected").text();
 			var quantidade = $('#quantidade').val();
-			var data = $('#data').val();
+			var data = $('#datavenda').val();
 				
 			if (vendedor == 'Selecione um vendedor') {				
                     alert("Selecione um vendedor");
@@ -114,13 +114,14 @@ require_once("../controller/ControllerVendas.php");
 			}			
 			if(data.length == 0) {
 				alert("Informe uma data");
-                    $('#data').focus();
+                    $('#datavenda').focus();
                     return false;
 			}	
 			/** OBTER ID_PRODUTO E ID_VENDEDOR */
 			var id_produto  = $('#produto').find(':selected').attr('value');
 			var id_vendedor  = $('#vendedor').find(':selected').attr('value');
-			params = '?id_produto='+id_produto+'&id_vendedor='+id_vendedor;		
+			var datavenda = $('#datavenda').val();
+			params = '?id_produto='+id_produto+'&id_vendedor='+id_vendedor+'&data='+datavenda;		
 			window.location = "Index"+params
 			
 			/**ENVIA O FORMULÁRIO SE TUDO ESTIVER OK */

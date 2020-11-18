@@ -62,7 +62,7 @@ require_once("../gulp.php");
             }
 			if (quantidade.length == 0) {
                     alert("Informe uma quantidade");
-                    $('#comissao').focus();
+                    $('#quantidade').focus();
                     return false;
 			}
 			// if (comissao.length == 0) {

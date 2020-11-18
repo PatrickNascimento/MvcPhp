@@ -1,6 +1,5 @@
 <?php
-
-require_once("../model/cadastroProduto.php");
+//require_once("../model/cadastroProduto.php");
 require_once("../model/cadastroVenda.php");
 require_once("../gulp.php");
 class cadastroVendaController{
@@ -15,9 +14,11 @@ class cadastroVendaController{
     private function incluir(){        
         $this->cadastro->setIdVendedor($_GET['id_vendedor']);
         $this->cadastro->setIdProduto($_GET['id_produto']);
-        $this->cadastro->setValor($_POST['valor']);
+        $this->cadastro->setValor($_POST['valor']);        
         $this->cadastro->setQuantidade($_POST['quantidade']);          
-        $this->cadastro->setData($_POST['data']);          
+        $this->cadastro->setData($_GET['data']);          
+
+        
         //$this->cadastro->setComissao($_POST['comissao']);          
 
         $result = $this->cadastro->incluir();        

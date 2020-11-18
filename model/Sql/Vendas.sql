@@ -1,7 +1,7 @@
 USE [__DEV_TEST_1]
 GO
 
-/****** Object:  Table [ENGEPLUSTELECOM\patrick.nascimento].[Vendas]    Script Date: 13/11/2020 13:55:07 ******/
+/****** Object:  Table [ENGEPLUSTELECOM\patrick.nascimento].[Vendas]    Script Date: 18/11/2020 07:51:58 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -15,6 +15,7 @@ CREATE TABLE [ENGEPLUSTELECOM\patrick.nascimento].[Vendas](
 	[Data_venda] [datetime] NULL,
 	[valor_venda] [decimal](18, 0) NULL,
 	[comissao] [decimal](18, 0) NULL,
+	[forma_pagamento] [nvarchar](50) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id_vendas] ASC
@@ -29,5 +30,14 @@ ON DELETE CASCADE
 GO
 
 ALTER TABLE [ENGEPLUSTELECOM\patrick.nascimento].[Vendas] CHECK CONSTRAINT [FK_Vendas_produto]
+GO
+
+ALTER TABLE [ENGEPLUSTELECOM\patrick.nascimento].[Vendas]  WITH CHECK ADD  CONSTRAINT [FK_Vendas_vendedor] FOREIGN KEY([id_vendedor])
+REFERENCES [ENGEPLUSTELECOM\patrick.nascimento].[vendedor] ([id_vendedor])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [ENGEPLUSTELECOM\patrick.nascimento].[Vendas] CHECK CONSTRAINT [FK_Vendas_vendedor]
 GO
 

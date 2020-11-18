@@ -47,6 +47,23 @@ public function setProduto($nome,$valor,$quantidade,$comissao){
     }     
 }
 
+    /*INSERE NOVO REGISTRO PRODUTO*/
+    public function setVenda($id_vendedor,$id_produto,$valor,$quantidade,$data){
+      try{
+         //var_dump($data);
+          $Conexao    = Conexao::getConnection();
+          $query      = $Conexao->prepare("INSERT INTO vendas (id_vendedor,id_produto,valor_venda,quantidade,Data_venda) VALUES ($id_vendedor,$id_produto,$valor,$quantidade,'$data')");                                                  
+          //var_dump($query);
+          $query->execute();
+          return 1;
+       }catch(Exception $e){
+          echo $e->getMessage();
+          return 2;
+          exit;
+       }     
+   }
+   
+
     /*BUSCA VENDEDORES*/
     public function getVendedor(){
         try{
@@ -62,19 +79,6 @@ public function setProduto($nome,$valor,$quantidade,$comissao){
          }
     }
 
-    /*INSERE NOVO REGISTRO PRODUTO*/
-public function setVenda($id_vendedor,$id_produto,$valor,$data){
-   try{
-       $Conexao    = Conexao::getConnection();
-       $query      = $Conexao->prepare("INSERT INTO vendas (id_vendedor,id_produto,valor_venda,data_venda) VALUES ($id_vendedor,$id_produto,$valor,$data)");                                                  
-       $query->execute();
-       return 1;
-    }catch(Exception $e){
-       echo $e->getMessage();
-       return 2;
-       exit;
-    }     
-}
 
       /*BUSCA PRODUTOS*/
       public function getProduto(){
@@ -90,6 +94,62 @@ public function setVenda($id_vendedor,$id_produto,$valor,$data){
              exit;
           }
      }
+
+           /*BUSCA VENDAS*/
+           public function getVenda($filtro){
+            try{
+                $Conexao    = Conexao::getConnection();
+                $query      = $Conexao->query("SELECT id_vendas, v.nome as vendedor, p.nome as produto, Data_venda,valor_venda, v.comissao 
+                                               FROM Vendas 
+                                               JOIN produto p ON p.id_produto = vendas.id_produto
+                                               JOIN vendedor v ON v.id_vendedor = vendas.id_vendedor");
+                $produto   = $query->fetchAll();
+    
+                return $produto;
+             
+             }catch(Exception $e){
+                echo $e->getMessage();
+                exit;
+             }
+        }
+
+               /*BUSCA VENDAS TOTAL*/
+               public function getVendaTotal($filtro){
+                  try{
+                      $Conexao    = Conexao::getConnection();
+                      $query      = $Conexao->query("SELECT top 1 id_vendas, v.nome as vendedor, p.nome as produto, Data_venda,valor_venda as valortotal, v.comissao 
+                                                     FROM Vendas 
+                                                     JOIN produto p ON p.id_produto = vendas.id_produto
+                                                     JOIN vendedor v ON v.id_vendedor = vendas.id_vendedor");
+                      $produto   = $query->fetchAll();
+          
+                      return $produto;
+                   
+                   }catch(Exception $e){
+                      echo $e->getMessage();
+                      exit;
+                   }
+              }
+
+              /*BUSCA VENDAS TOTAL*/
+              public function getVendaTotalComissao($filtro){
+               try{
+                   $Conexao    = Conexao::getConnection();
+                   $query      = $Conexao->query("SELECT top 1 id_vendas, v.nome as vendedor, p.nome as produto, Data_venda,valor_venda as totalcomissao, v.comissao 
+                                                  FROM Vendas 
+                                                  JOIN produto p ON p.id_produto = vendas.id_produto
+                                                  JOIN vendedor v ON v.id_vendedor = vendas.id_vendedor");
+                   $produto   = $query->fetchAll();
+       
+                   return $produto;
+                
+                }catch(Exception $e){
+                   echo $e->getMessage();
+                   exit;
+                }
+           }
+
+
 
      /*EXCLUSAO POR VENDEDOR*/
      public function deleteVendedor($id_vendedor){         
@@ -118,6 +178,21 @@ public function setVenda($id_vendedor,$id_produto,$valor,$data){
           exit;
        }     
    }
+
+      /*EXCLUSAO POR VENDEDOR*/
+      public function deleteVenda($id_venda){         
+         try{
+             $Conexao    = Conexao::getConnection();
+             $query      = $Conexao->query("DELETE FROM vendedor WHERE id_vendedor = " .$id_venda);                                                                
+             $query->execute();
+             return 1;
+          }catch(Exception $e){
+             echo $e->getMessage();
+             return 2;
+             exit;
+          }     
+  }
+
      /*PESQUISA POR VENDEDOR*/
      public function pesquisaVendedor($id){
          try{
@@ -160,7 +235,6 @@ public function setVenda($id_vendedor,$id_produto,$valor,$data){
          exit;
       }               
     }
-
     
      /*UPDATE PRODUTO*/
      public function updateProduto($id_produto,$nome,$valor,$quantidade,$comissao){

@@ -43,7 +43,7 @@
 									<a class="gn-icon gn-icon-article">Vendas</a>
 									<ul class="gn-submenu">
 										<li><a href="menu.php?page=cadastroVendas.php" class="gn-icon gn-icon-archive">Cadastrar Venda</a></li>
-										<li><a class="gn-icon gn-icon-archive">Relatório de vendas</a></li>
+										<li><a href="menu.php?page=relVendas.php&filtro=" class="gn-icon gn-icon-archive">Relatório de vendas</a></li>
 									</ul>
 								</li>
 								

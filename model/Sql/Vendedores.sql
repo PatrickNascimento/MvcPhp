@@ -1,7 +1,7 @@
 USE [__DEV_TEST_1]
 GO
 
-/****** Object:  Table [ENGEPLUSTELECOM\patrick.nascimento].[vendedor]    Script Date: 13/11/2020 13:54:51 ******/
+/****** Object:  Table [ENGEPLUSTELECOM\patrick.nascimento].[vendedor]    Script Date: 18/11/2020 07:52:21 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -13,7 +13,7 @@ CREATE TABLE [ENGEPLUSTELECOM\patrick.nascimento].[vendedor](
 	[comissao] [int] NULL,
 	[nome] [varchar](50) NULL,
 	[ativo] [tinyint] NULL,
- CONSTRAINT [PK__vendedor__00930308717F0810] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_vendedor_id_vendedor] PRIMARY KEY CLUSTERED 
 (
 	[id_vendedor] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]

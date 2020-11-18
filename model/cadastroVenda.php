@@ -7,9 +7,9 @@ class CadastroVenda extends Banco {
     private $id_produto;
     private $nome;
     private $valor;    
-    private $data;
-    //private $comissao;    
-
+    private $quantidade;    
+    private $data;    
+    
     //Metodos Set
     public function setIdVenda($int){
         $this->id_venda = $int;
@@ -22,16 +22,14 @@ class CadastroVenda extends Banco {
     }    
     public function setValor($double){
         $this->valor = $double;
-    }
-    public function setQuantidade($double){
-        $this->quantidade = $double;
-    }
+    }    
+     public function setQuantidade($int){
+         $this->quantidade = $int;
+     }
+
     public function setData($date){
         $this->data = $date;
     }
-    // public function setComissao($string){
-    //     $this->comissao = $string;
-    // }
     
     //Metodos Get
     public function getIdVenda(){
@@ -53,10 +51,7 @@ class CadastroVenda extends Banco {
     }  
     public function getData(){
         return $this->data;
-    }  
-    // public function getComissao(){
-    //     return $this->comissao;
-    // }
+    }     
     
     public function incluir(){        
         return $this->setVenda($this->getIdVendedor(),$this->getIdProduto(),$this->getValor(),$this->getQuantidade(),$this->getData());
